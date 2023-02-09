@@ -1,5 +1,6 @@
 package com.example.Sql_Rocks;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -9,12 +10,20 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id  //it is written on the attribute which has to become private key
+    @Column(unique = true)
     private int id;
+
+    @Column(unique = true)
+    private String email;
 
     private String name;
     private String age;
 
     private String mobileNumber;
+
+
+    @Column(name="country_name")
+    private String country;
 
     //always create the constructor
     public User()
@@ -30,7 +39,25 @@ public class User {
         this.mobileNumber=mobileNumber;
     }
 
+
     //creating getters and setters
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
     public int getId() {
         return id;
